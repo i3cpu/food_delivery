@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Доставка еды</title>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" href="{% static 'foods/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">Food delivery</h1>
+            <!-- <form action="">
+                <input type="text">
+                <input type="submit">
+            </form> -->
+            <nav>
+                <ul>
+                    <li><a href="{% url 'main_page' %}">Главная</a></li>
+                    <li><a href="{% url 'restaurants_page' %}">Рестораны</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Корзина</a></li>
+                </ul>
+            </nav>
+                <div>
+                    {% if user.is_authenticated %}
+                        <a  href="#">Профиль</a>
+                        <!-- <a href="#">Выход</a> -->
+                    {% else %}
+                        <a  href="#">Вход</a>
+                        <a  href="#">Регистрация</a>
+                    {% endif %}
+                </div>
+            
+        </header>
+
+        <section class="main">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+
+        <footer>
+            <!-- <p> Доставка еды</p> -->
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

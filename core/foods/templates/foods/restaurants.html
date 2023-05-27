@@ -1,0 +1,17 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+<h2>Рестораны </h2>
+<div class="restaurants">
+    {% for i in restaurants %}
+            <a href="{% url 'menu' restaurant_pk=i.pk %}">
+                <div class="restaurant" >
+                    <h2>{{i.name}}</h2>
+                    <p>{{i.description}}</p>
+                </div>
+            </a>
+    {% endfor %}
+
+</div>
+{% endblock %}
+

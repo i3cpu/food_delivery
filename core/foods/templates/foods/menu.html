@@ -1,0 +1,29 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+
+<div class="restourants-banner">
+    <h1>{{menu.first.restaurant}}</h1>
+    <p>{{menu.first.restaurant.description|truncatechars:50}} </p>
+    <div class="restourants-banner-text">
+        <p>{{menu.first.restaurant.adress}}</p>
+        <p>{{menu.first.restaurant.phone}}</p>
+    </div>
+</div>
+
+<div class="products">
+
+    {% for i in menu %}
+            
+       <div class="product">
+            <h2>{{i.name}}</h2>
+            <p>{{i.description|truncatechars:50}}</p>
+            <p id="price">{{i.price}}</p>
+            <!-- {{i.categories.name}} <br> -->
+
+        </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
+

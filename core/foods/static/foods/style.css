@@ -1,0 +1,92 @@
+/* Стили для заголовков */
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container {
+    width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main{
+    padding:30px;
+}
+
+/* header */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(43, 43, 43);
+    padding: 5px 25px 5px 25px;
+    border-bottom: 10px solid rgb(241, 241, 45);
+    border-radius: 18px;
+}
+.logo{
+    color: #ffffff;
+    /* letter-spacing: 5px; */
+    font-size: 25px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+h2, h1{
+    margin: 0;
+    padding: 0;
+}
+
+.restaurants, .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.restaurant, .product{
+    width: 250px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    /* background-color: #f2f2f2; */
+    border: 2px solid black;
+    border-radius: 30px ;
+}
+/* .restourants-banner {
+    margin-top: 30px;
+} */
+.restourants-banner-text{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.restourants-banner-text p{
+    font-size: 15px;
+
+}
+#price{
+    padding: 5px;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    border-radius: 20px;
+    margin-right:12px ;
+    margin-left: 12px;
+}
+
