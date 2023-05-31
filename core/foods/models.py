@@ -7,7 +7,7 @@ class RestaurantsModel(models.Model):
     description = models.TextField(max_length=500)
     phone = models.CharField(max_length=200)
     adress = models.CharField(max_length=250)
-    # image = models.ImageField(upload_to='images', null=True, blank=True, default='default.jpg')
+    image = models.ImageField(upload_to='images', null=True, blank=True, default='images/default.webp')
     # category = models.ManyToManyField("FoodCategoryModel", related_name="food_category" )
 
     def __str__(self) -> str:
@@ -25,7 +25,7 @@ class MenuModel(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     restaurant = models.ForeignKey('RestaurantsModel', on_delete=models.CASCADE, blank=True)
     categories = models.ManyToManyField('FoodCategoryModel', related_name="food_category")
-    # image = models.ImageField(upload_to='images', null=True, blank=True, default='default.jpg')
+    image = models.ImageField(upload_to='images', null=True, blank=True, default='images/default.webp')
 
 
     def __str__(self) -> str:

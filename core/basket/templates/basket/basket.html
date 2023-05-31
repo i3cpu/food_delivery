@@ -1,0 +1,18 @@
+{% extends 'foods/base.html' %}
+
+
+{% block content %}
+
+    <!-- {{basket}} <br> -->
+    {% for i in products %}
+        {{i.name}} <br> <br>
+        {{i.description}} <br><br>
+        {{i.price}} <br><br>
+
+
+    {% endfor %}
+<br> <b> Kolichestvo productov: </b>
+    {{pproducts_count}}
+<br><br> <b>Obshaya tsena:</b>
+    {{total_price}}
+{% endblock %}

@@ -14,6 +14,7 @@ def restaurants_page(request):
     return render(request, "foods/restaurants.html", context)
 
 def menu(request, restaurant_pk=None):
+    category = FoodCategoryModel.objects.all()
     menu = MenuModel.objects.filter(restaurant=restaurant_pk)
-    context = {'menu':menu}
+    context = {'menu':menu, 'category':category}
     return render(request, "foods/menu.html", context)

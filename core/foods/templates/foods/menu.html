@@ -3,27 +3,48 @@
 {% block content %}
 
 <div class="restourants-banner">
-    <h1>{{menu.first.restaurant}}</h1>
-    <p>{{menu.first.restaurant.description|truncatechars:50}} </p>
+    <span class="restourants-banner-logo">{{menu.first.restaurant}}</span>
+    <p class="restourants-banner-description" >{{menu.first.restaurant.description}} </p>
     <div class="restourants-banner-text">
         <p>{{menu.first.restaurant.adress}}</p>
         <p>{{menu.first.restaurant.phone}}</p>
     </div>
 </div>
 
+
+{% for i in category %}
+    {{i.name}}
+    {% endfor %}
+{{category.name}}
+
+<br>
 <div class="products">
 
-    {% for i in menu %}
-            
-       <div class="product">
-            <h2>{{i.name}}</h2>
-            <p>{{i.description|truncatechars:50}}</p>
-            <p id="price">{{i.price}}</p>
-            <!-- {{i.categories.name}} <br> -->
 
+
+
+
+    {% for i in menu %}
+
+            {{i.categories.first.name}}
+
+       <div class="product">
+            <div>
+                <img class="product-image" src="/media/{{i.image}}" alt="product-img">
+            </div>
+            <div>
+                <h2>{{i.name}}</h2>
+                <p>{{i.description|truncatechars:50}}</p>
+                <p id="price">{{i.price}}</p>
+                <a href="{% url 'add_to_basket' product_pk=i.pk %}"> + </a>
+            </div>
         </div>
 
     {% endfor %}
+
+
+
+
 </div>
 {% endblock %}
 
