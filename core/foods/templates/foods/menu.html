@@ -1,50 +1,65 @@
 {% extends 'foods/base.html' %}
 
 {% block content %}
+<div class="menu-main-block">
 
-<div class="restourants-banner">
-    <span class="restourants-banner-logo">{{menu.first.restaurant}}</span>
-    <p class="restourants-banner-description" >{{menu.first.restaurant.description}} </p>
-    <div class="restourants-banner-text">
-        <p>{{menu.first.restaurant.adress}}</p>
-        <p>{{menu.first.restaurant.phone}}</p>
-    </div>
-</div>
-
-
-{% for i in category %}
-    {{i.name}}
-    {% endfor %}
-{{category.name}}
-
-<br>
-<div class="products">
-
-
-
-
-
-    {% for i in menu %}
-
-            {{i.categories.first.name}}
-
-       <div class="product">
-            <div>
-                <img class="product-image" src="/media/{{i.image}}" alt="product-img">
-            </div>
-            <div>
-                <h2>{{i.name}}</h2>
-                <p>{{i.description|truncatechars:50}}</p>
-                <p id="price">{{i.price}}</p>
-                <a href="{% url 'add_to_basket' product_pk=i.pk %}"> + </a>
+    <div>
+        <div class="restourants-banner">
+            <span class="restourants-banner-logo">{{menu.first.restaurant}}</span>
+            <p class="restourants-banner-description" >{{menu.first.restaurant.description}} </p>
+            <div class="restourants-banner-text">
+                <p>{{menu.first.restaurant.adress}}</p>
+                <p>{{menu.first.restaurant.phone}}</p>
             </div>
         </div>
 
-    {% endfor %}
+
+        {% for i in category %}
+            <!-- {{i.name}}
+            {% endfor %}
+        {{category.name}} -->
+
+        <br>
+        <div class="products">
 
 
+            {% for i in menu %}
 
+                    <!-- {{i.categories.first.name}} -->
 
+                <div class="product">
+                        <div>
+                            <img class="product-image" src="/media/{{i.image}}" alt="product-img">
+                        </div>
+                        <div>
+                            <h2>{{i.name}}</h2>
+                            <p>{{i.description|truncatechars:50}}</p>
+                            <p id="price">{{i.price}}</p>
+                            <a href="{% url 'add_to_basket' restaurant_pk=i.restaurant.pk product_pk=i.pk %}"> + </a>
+                            <h1></h1>
+                        </div>
+                    </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    
+    <!-- закреп позицию чтоб не двигался при прокручивании-->
+    <div class="basket-elements">
+            <h2>Корзина</h2>
+            {% for i in basket.product.all %}
+                <div class="menu-basket-product">
+                    <img class="menu-basket-elements-img" src="/media/{{i.image}}" alt="product-img">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.price}}</p>
+                    <a href="{% url 'remove_from_basket' product_pk=i.pk %}" id="button" >- Удалить</a>
+                    <!-- <a href="" >+</a> -->
+
+                </div>    
+            {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
 

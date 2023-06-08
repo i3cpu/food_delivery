@@ -4,15 +4,42 @@
 {% block content %}
 
     <!-- {{basket}} <br> -->
-    {% for i in products %}
-        {{i.name}} <br> <br>
-        {{i.description}} <br><br>
-        {{i.price}} <br><br>
+<h1>Корзина</h1>
+
+        <div class="products">
+{% block basket %}
+            {% for i in products %}
+
+                <div class="product">
+                    <div>
+                        <img class="product-image" src="/media/{{i.image}}" alt="product-img">
+                    </div>
+
+                    <div>
+                        <h2>{{i.name}}</h2>
+                        <p>{{i.description|truncatechars:50}}</p>
+                        <p id="price">{{i.price}}</p>
+                        <a href="{% url 'remove_from_basket' product_pk=i.pk %}"> --- </a>
+                        <h1></h1>
+                    </div>
+                </div>
+
+            {% endfor %}
+{% endblock %}
+        </div>
 
 
-    {% endfor %}
+<br><hr><br>
 <br> <b> Kolichestvo productov: </b>
     {{pproducts_count}}
 <br><br> <b>Obshaya tsena:</b>
     {{total_price}}
+    
+<br><br>
+    <h2><a href="{% url 'clear_basket'  %}">Очистка корзины</a></h2>
+    <br>
+
+
+/
 {% endblock %}
+
