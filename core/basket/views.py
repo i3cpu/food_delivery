@@ -3,9 +3,14 @@ from django.shortcuts import render, redirect
 from basket.models import BasketModel, OrdersModel
 from foods.models import MenuModel
 
+from django.contrib import messages as m
+
+# from basket.forms import OrdersForm
+
 # Create your views here.
 
 def basket_page(request):
+    print("-------------------------------",request.POST)
     basket = BasketModel.objects.filter(user = request.user).first()
     products = basket.product.all()
     products_count = products.count() 
@@ -15,11 +20,14 @@ def basket_page(request):
         total_price +=i.price
 
     context = {
+
         'products':products, 
         'basket':basket, 
         'pproducts_count':products_count,
-        'total_price':total_price
-          }
+        'total_price':total_price,
+
+        }
+
     return render(request, 'basket/basket.html', context)
 
 
@@ -54,9 +62,26 @@ def order_products(request):
     basket = BasketModel.objects.filter(user=request.user).first()
     products = basket.product.all()
     total_price = 0
-    order = OrdersModel.objects.create(user = request.user, total_price=total_price )
-    order.product.add(*products)
-
-    print("---------------------------------------------------", *products)
-    # order.product.add(*products)
-    return redirect("main_page")
+    order = OrdersModel.objects.filter(user = request.user).first()
+    print(order, "----------------------------------")
+    if order==None:
+    
+        if request.method == "GET":
+            payment_method = request.GET.get('payment_method')
+            adress = request.GET.get('adress') 
+            messages = request.GET.get('messages') 
+            order = OrdersModel.objects.create(
+                user = request.user,
+                total_price=total_price,
+                payment_method = payment_method,
+                adress = adress,
+                messages = messages
+                
+                )
+            order.product.add(*products)
+            basket.product.clear()
+            return redirect("basket_page")
+    else:
+        error = "У вас есть активные заказы !"
+        m.add_message(request, m.WARNING, error)
+        return redirect("basket_page")

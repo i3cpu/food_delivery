@@ -3,43 +3,78 @@
 
 {% block content %}
 
-    <!-- {{basket}} <br> -->
+
 <h1>Корзина</h1>
+<br>
 
-        <div class="products">
-{% block basket %}
-            {% for i in products %}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                   <h2>{{ message }}</h2>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-                <div class="product">
-                    <div>
-                        <img class="product-image" src="/media/{{i.image}}" alt="product-img">
-                    </div>
+<div class="basket-main-block">
+    <!-- {{basket}} <br> -->
 
-                    <div>
-                        <h2>{{i.name}}</h2>
-                        <p>{{i.description|truncatechars:50}}</p>
-                        <p id="price">{{i.price}}</p>
-                        <a href="{% url 'remove_from_basket' product_pk=i.pk %}"> --- </a>
-                        <h1></h1>
-                    </div>
-                </div>
+    <div class="form-block">
 
-            {% endfor %}
-{% endblock %}
+        {% if products %}
+        <div>
+            <p><b> Количество продуктов: {{pproducts_count}} </b></p>
+            <p><b> Общая цена: {{total_price}} </b></p>
+            <hr><br>
         </div>
+            <form action="{% url 'order_products' %}"  method="get" class="basket-form"> 
+                <!-- {% csrf_token %} -->
+
+                <select name="payment_method" id="payment_method" required>
+                    <option value="cash">Наличные</option>
+                    <option value="card">Карта</option>
+                </select>
+
+                <input type="text" class="adress-input" name="adress" placeholder="Adress" required>
+
+                <textarea class="message-input" name="messages" id="messages" cols="30" rows="10" placeholder="Message"></textarea>
+
+                <button class="order-button" >Заказать</button>
+
+            </form>
 
 
-<br><hr><br>
-<br> <b> Kolichestvo productov: </b>
-    {{pproducts_count}}
-<br><br> <b>Obshaya tsena:</b>
-    {{total_price}}
-    
-<br><br>
-    <h2><a href="{% url 'clear_basket'  %}">Очистка корзины</a></h2>
-    <br>
+            <br>
+            <a class="basket-clear-button" href="{% url 'clear_basket'  %}">Очистка корзины</a>
+
+        {% else %}
+
+            <h1 style="text-align: center;" >Пусто</h1>
+            
+        {% endif %}
+    </div>
+
+    <div class="products">
 
 
-/
+        {% for i in products %}
+
+            <div class="product">
+                    <div>
+                    <img class="product-image" src="/media/{{i.image}}" alt="product-img">
+                </div>
+                <div>
+                    <h2>{{i.name}}</h2>
+                    <p>{{i.description|truncatechars:50}}</p>
+                    <p id="price">{{i.price}}</p>
+                    <a href="{% url 'remove_from_basket' product_pk=i.pk %}"> --- </a>
+                    <h1></h1>
+                </div>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
 {% endblock %}
 
