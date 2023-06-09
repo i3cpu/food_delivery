@@ -1,0 +1,37 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+<h2>Заказы </h2>
+<div class="restaurants">
+
+    <div>
+        <p>created_date: {{orders.created_date}}</p>
+        <p>total_price: {{orders.total_price}}</p>
+        <p>status: {{orders.status}}</p>
+        <p>payment_method: {{orders.payment_method}}</p>
+        <p>adress: {{orders.adress}}</p>
+        <p>messages: {{orders.messages}}</p>
+    </div>    
+
+
+
+
+    {% for i in products %}
+
+    {{i.product.name}}
+            
+                <div class="restaurant" >
+                    <div>
+                        <img class="product-image" src="/media/{{i.image}}" alt="product-img">
+                    </div>
+                    <br>
+                    <div>
+                        <h2>{{i.name}}</h2>
+                        <p>{{i.description|truncatechars:100}}</p>
+                    </div>
+                </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+

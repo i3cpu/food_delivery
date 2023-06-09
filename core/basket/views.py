@@ -85,3 +85,10 @@ def order_products(request):
         error = "У вас есть активные заказы !"
         m.add_message(request, m.WARNING, error)
         return redirect("basket_page")
+    
+
+def orders_page(request):
+    orders = OrdersModel.objects.filter(user = request.user).first()
+    products = orders.product.all()
+    context = {'products':products, 'orders':orders}
+    return render(request, 'basket/orders.html', context)
