@@ -1,37 +1,57 @@
 {% extends 'foods/base.html' %}
 
 {% block content %}
-<h2>Заказы </h2>
-<div class="restaurants">
-
-    <div>
-        <p>created_date: {{orders.created_date}}</p>
-        <p>total_price: {{orders.total_price}}</p>
-        <p>status: {{orders.status}}</p>
-        <p>payment_method: {{orders.payment_method}}</p>
-        <p>adress: {{orders.adress}}</p>
-        <p>messages: {{orders.messages}}</p>
-    </div>    
+<!-- <h2>Заказы </h2>
 
 
-
+        created_date: {{orders.created_date}}
+        total_price: {{orders.total_price}}
+        status: {{orders.status}}
+        payment_method: {{orders.payment_method}}
+        adress: {{orders.adress}}
+        messages: {{orders.messages}}
 
     {% for i in products %}
 
-    {{i.product.name}}
-            
-                <div class="restaurant" >
+                    {{i.product.name}}
                     <div>
                         <img class="product-image" src="/media/{{i.image}}" alt="product-img">
                     </div>
-                    <br>
-                    <div>
+                    
                         <h2>{{i.name}}</h2>
                         <p>{{i.description|truncatechars:100}}</p>
                     </div>
-                </div>
-    {% endfor %}
+    {% endfor %} -->
 
-</div>
+
+    <div class="order-page-container">
+        <div class="order-products-container">
+          <h2>Заказанные продукты</h2>
+          <br>
+          {% for i in products %}
+            <div class="order-product-item">
+                <div class="order-product-image">
+                    <img src="/media/{{i.image}}" alt="product-img">
+                </div>
+                <div class="order-product-info">
+                    <h3>{{i.name}}</h3>
+                    <p>{{i.description|truncatechars:100}}</p>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      
+        <div class="order-details-container">
+          <h2>Детали заказа</h2>
+          <p>Дата создания: {{orders.created_date}}</p>
+          <p>Общая стоимость: {{orders.total_price}}</p>
+          <p>Статус: {{orders.status}}</p>
+          <p>Способ оплаты: {{orders.payment_method}}</p>
+          <p>Адрес: {{orders.adress}}</p>
+          <p>Сообщения: {{orders.messages}}</p>
+        </div>
+      </div>
+      
+
 {% endblock %}
 

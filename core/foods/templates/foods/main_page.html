@@ -1,6 +1,32 @@
 {% extends 'foods/base.html' %}
+{% load static %}
+
 
 {% block content %}
-Главная страница(реклама , акции, хз )
 
+<!-- Главная страница(реклама , акции, хз ) -->
+
+    {% verbatim %}
+    
+        <div id="app">
+            <!-- index -  {{index}} -->
+            <br>
+            <div class="controls">
+                <button @click="previous">Prev</button>
+            </div>
+                <div class="slider">
+                    <img :src="images[index].url"  alt="Image">
+                </div>
+            <div class="controls">
+            <button @click="next">Next</button>
+            </div>
+            </div>
+        </div>
+
+    {% endverbatim %}
+
+
+
+<script src="{% static 'foods/main.js' %}"></script>
 {% endblock %}
+

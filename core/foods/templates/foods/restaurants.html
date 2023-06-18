@@ -3,12 +3,15 @@
 {% block content %}
 <h2>Рестораны </h2>
 <div class="restaurants">
+
     {% for i in restaurants %}
             <a href="{% url 'menu_page' restaurant_pk=i.pk %}">
                 <div class="restaurant" >
                     <div>
                         <img class="product-image" src="/media/{{i.image}}" alt="product-img">
                     </div>
+                    <br>
+                    <!-- media/{{i.image}} -->
                     <br>
                     <div>
                         <h2>{{i.name}}</h2>

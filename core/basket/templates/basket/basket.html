@@ -53,27 +53,27 @@
         {% endif %}
     </div>
 
-    <div class="products">
-
-
+    
+    <div class="basket-products">
         {% for i in products %}
-
-            <div class="product">
-                    <div>
-                    <img class="product-image" src="/media/{{i.image}}" alt="product-img">
-                </div>
-                <div>
-                    <h2>{{i.name}}</h2>
-                    <p>{{i.description|truncatechars:50}}</p>
-                    <p id="price">{{i.price}}</p>
-                    <a href="{% url 'remove_from_basket' product_pk=i.pk %}"> --- </a>
-                    <h1></h1>
-                </div>
+        <div class="basket-product">
+          <div class="product-info">
+            <div>
+              <img class="basket-product-image" src="/media/{{i.image}}" alt="product-img">
             </div>
+            <div>
+              <h2>{{i.name}}</h2>
+              <p>{{i.description|truncatechars:50}}</p>
+            </div>
+          </div>
+          <div class="product-actions">
+            <div class="basket-product-price">{{i.price}}</div>
+            <a id="remove-button" href="{% url 'remove_from_basket' product_pk=i.pk %}">Удалить</a>
+          </div>
+        </div>
         {% endfor %}
-
-
-    </div>
+      </div>
+      
 
 </div>
 {% endblock %}

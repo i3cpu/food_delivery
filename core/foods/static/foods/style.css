@@ -25,7 +25,7 @@ header{
     padding: 5px 25px 5px 25px;
     border-bottom: 10px solid rgb(146, 146, 146);
     border-radius: 18px;
-    /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); */
+    /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); */ 
     margin-bottom: 8px;
 }
 .logo{
@@ -214,6 +214,55 @@ a{
 }
 
 /*  -------------стили отображения стр корзины --------- */
+.basket-products {
+    display: flex;
+    flex-direction: column;
+    background-color: #c7c7c7;
+    padding: 20px;
+  }
+  
+  .basket-product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+  .basket-product-image {
+    width: 150px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 15px;
+  }
+  
+  .product-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .product-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .basket-product-price {
+    margin-right: 4px;
+    /* margin-left: 7px; */
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1f1f1f;
+    padding: 10px;
+}
+  
+  #remove-button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #bc2828;
+    padding: 10px;
+  }
+  
 .basket-main-block{
     display: flex;
     justify-content:center;
@@ -252,3 +301,88 @@ a{
     margin: 10px;
     
 }
+
+/* -------------------стили слайдера ---------------------- */
+#app {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    font-family: Arial, sans-serif;
+    justify-content: center;  }
+  
+  .slider {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+  }
+  
+  .slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+  
+  .controls button {
+    background-color: rgb(190, 190, 190);
+    color: #1f1f1f;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 40px;
+    /* transform: translateY(-50%) rotate(45deg); */
+}
+  
+  .controls button:hover {
+    background-color: #ddd;
+  }
+
+
+  /* --------------------------------------- */
+  .order-page-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .order-products-container {
+    width: 60%;
+    background-color: #c7c7c7;
+    padding: 20px;
+  }
+  
+  .order-product-item {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  
+  .order-product-image img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+  
+  .order-product-info {
+    flex-grow: 1;
+  }
+  
+  .order-details-container {
+    background-color: #c7c7c7;
+    padding: 40px;
+    width: 35%;
+    border-radius: 10px;
+  }
+  
+  .order-details-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .order-details-container p {
+    margin: 13px 0;
+  }
+  
