@@ -309,8 +309,8 @@ a{
     align-items: center;
     font-family: Arial, sans-serif;
     justify-content: center;  }
-  
-  .slider {
+    
+    .slider {
     position: relative;
     width: 1000px;
     height: 500px;
@@ -333,7 +333,7 @@ a{
     transition: background-color 0.3s ease;
     margin: 10px 40px;
     /* transform: translateY(-50%) rotate(45deg); */
-}
+  }
   
   .controls button:hover {
     background-color: #ddd;
@@ -385,4 +385,3 @@ a{
   .order-details-container p {
     margin: 13px 0;
   }
-  

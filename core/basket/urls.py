@@ -10,8 +10,11 @@ urlpatterns = [
     path('/order/products', views.order_products, name="order_products"),
     path('/orders', views.orders_page, name="orders_page"),
 
+    path('/api', views.BasketAPIView.as_view(), name="basket-api"),
+    path('/api/product/add/<int:product_pk>', views.AddToBasketAPIView.as_view(), name="basket-api-add-product"),
+    path('/api/product/remove/<int:product_pk>', views.RemoveFromBAsketAPIView.as_view(), name="basket-api-remove-product"),
+    path('/api/product/clear', views.ClearBasketAPIView.as_view(), name="basket-api-clear-product")
 
 
-    
 
 ]
