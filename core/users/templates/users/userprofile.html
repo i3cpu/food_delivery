@@ -1,0 +1,26 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <div class="profile-form">
+        <form class="" method="post" action="#" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="profile-form">
+                <div style="text-align:center ;">
+                    <img class="user-image" src="{{user.image.url}}" alt="profile-img">
+                    <!-- <br>{{user.image.url}} -->
+                    <p>{{form.image}}</p>
+                </div>
+                <div>
+                    <p>{{form.first_name}}</p>
+                    <p>{{form.last_name}}</p>
+                    <p>{{form.email}}</p>
+                    <p>{{form.username}}</p>
+                </div>
+            </div>
+            <input type="submit" class="button">
+        </form>
+    </div>
+{% endblock %}
+

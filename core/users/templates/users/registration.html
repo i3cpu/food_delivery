@@ -1,0 +1,45 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+
+{% if messages or form.errors %}
+
+    <div class="xz-form">
+        <h3 style="color: #3F51B5;">Ошибка при валидации данных: </h3>
+        <h4 >
+            {% if messages %}
+                {% for i in messages %}
+                    <p>{{i}}</p>
+                {% endfor %}
+            {% else %}
+                {{ form.errors }}
+            {% endif %}
+        </h4>
+    </div>
+{% endif %}
+    <div class="registrtation-form">
+
+        <form method="post">
+                {% csrf_token %}
+                <div id="registrtation-form" >
+                    <div>   
+                        <p>{{ form.first_name }}</p>
+                        <p>{{ form.last_name }}</p>
+                        <p>{{ form.username }}</p>
+                    </div>
+                    <div>
+                        <p>{{ form.email }}</p>
+                        <p>{{ form.password1 }}</p>
+                        <p>{{ form.password2 }}</p>
+                    </div>
+                </div>
+            <div>
+                <input type="submit" class="button">
+            </div>
+
+        </form>
+        <br>
+        <a style="font-size: 12px;" href="{% url 'login' %}"> Have accaount? Log in</a>
+
+    </div>
+{% endblock %}

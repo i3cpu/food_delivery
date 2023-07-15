@@ -17,20 +17,25 @@ from foods.serializers import MenuModelSerializer
 
 def basket_page(request):
     basket = BasketModel.objects.filter(user = request.user).first()
-    products = basket.product.all()
-    products_count = products.count() 
-    total_price = 0
+    if basket:
+        products = basket.product.all()
+        products_count = products.count() 
+        total_price = 0
 
-    for i in products:
-        total_price +=i.price
+        for i in products:
+            total_price +=i.price
 
-    context = {
+        context = {
 
-        'products':products, 
-        'basket':basket, 
-        'pproducts_count':products_count,
-        'total_price':total_price,
+            'products':products, 
+            'basket':basket, 
+            'pproducts_count':products_count,
+            'total_price':total_price,
 
+            }
+    else:
+        context = {
+            'error':"no products added"
         }
 
     return render(request, 'basket/basket.html', context)
@@ -95,8 +100,10 @@ def order_products(request):
 
 def orders_page(request):
     orders = OrdersModel.objects.filter(user = request.user).first()
-    products = orders.product.all()
-    context = {'products':products, 'orders':orders}
+    if orders:
+        products = orders.product.all()
+        context = {'products':products, 'orders':orders}
+    context = {'error':"no orders"}
     return render(request, 'basket/orders.html', context)
 
 

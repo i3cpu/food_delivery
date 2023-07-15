@@ -1,0 +1,22 @@
+{% extends 'foods/base.html' %}
+
+{% block content %}
+
+{% if form.non_field_errors %}
+    <div class="errors">
+        <h3 style="color: #3F51B5;">Ошибка при валидации данных: </h3>
+            <h4 >
+            {{ form.non_field_errors }}
+        </h4>
+    </div>
+{% endif %}
+<div class="login-form">
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ form.username }}</p>
+        <p>{{ form.password }}</p>
+        <input type="submit" class="button">
+    </form><br>
+    <a style="font-size: 12px;" href="{% url 'registration' %}">Dont have accaount? Sign up</a>
+</div>
+{% endblock %}

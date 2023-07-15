@@ -1,12 +1,14 @@
 from django.db import models
 
+from django.conf import settings
+
 from foods.models import MenuModel, RestaurantsModel
 
 
 # Create your models here.
 
 class BasketModel(models.Model):
-    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ManyToManyField(MenuModel, related_name="products_basket" )
     # amount = models.IntegerField(default=0)
 
@@ -15,7 +17,7 @@ class BasketModel(models.Model):
     
 
 class OrdersModel(models.Model):
-    user = models.OneToOneField('auth.User', on_delete=models.CASCADE )
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE )
     product = models.ManyToManyField(MenuModel, related_name="ordered_products" )
     created_date = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=12, decimal_places=2)

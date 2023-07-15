@@ -25,6 +25,7 @@
 
 
     <div class="order-page-container">
+      {% if orders %}
         <div class="order-products-container">
           <h2>Заказанные продукты</h2>
           <br>
@@ -50,6 +51,12 @@
           <p>Адрес: {{orders.adress}}</p>
           <p>Сообщения: {{orders.messages}}</p>
         </div>
+        {% else %}
+
+            <h1 style="text-align: center;" >Пусто</h1>
+            error: {{error}}
+            
+        {% endif %}
       </div>
       
 
