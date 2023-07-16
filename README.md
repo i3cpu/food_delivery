@@ -1,7 +1,14 @@
-![image](https://github.com/i3cpu/food_delivery/assets/106595656/7957cffb-88d5-4efb-b215-ba45b1b54e71)
-![image](https://github.com/i3cpu/food_delivery/assets/106595656/ae7a5a8e-cfe8-470a-ba3d-71a4d17c0601)
-![image](https://github.com/i3cpu/food_delivery/assets/106595656/eb94fdf3-3efd-45d6-b731-f1a2c524db6e)
-![image](https://github.com/i3cpu/food_delivery/assets/106595656/9a1a34bf-10ad-4269-a6bd-f423e051f1ba)
+![image](https://github.com/i3cpu/food_delivery/assets/106595656/d634dcb6-9af6-4ec7-a7ae-439e2fd85d35)
+
+![image](https://github.com/i3cpu/food_delivery/assets/106595656/1de1b7ab-5dc4-451f-a43d-758aff6b0385)
+
+![image](https://github.com/i3cpu/food_delivery/assets/106595656/5b5f1f8b-bfb3-4d77-a4cd-cd8e30db0374)
+
+![image](https://github.com/i3cpu/food_delivery/assets/106595656/20f4f5d8-f262-43de-9245-d7cb7db1dfad)
+
+![image](https://github.com/i3cpu/food_delivery/assets/106595656/0079a53b-7fe3-4753-9647-7721b2c896b0)
+
+
 
 ![image](https://github.com/i3cpu/food_delivery/assets/106595656/351fd387-6439-4c44-8148-97f9fa0ced09)
 ![image](https://github.com/i3cpu/food_delivery/assets/106595656/ace4e2e5-a21b-4665-b164-6b878827e4ec)
